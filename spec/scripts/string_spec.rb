@@ -19,6 +19,8 @@ describe "string_strip.rb" do
 
     output = with_captured_stdout { require_relative('../../string_strip')} 
     output = "empty" if output.empty? 
+
+    expect(output.length).to be <= 28, "Expected output to be 'remove the outside spaces', but output was #{output.length} characters long."
     expect(output.match?(/remove the outside spaces/)).to be(true), "Expected output to be 'remove the outside spaces', but was #{output}"
   end
 end
