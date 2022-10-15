@@ -45,7 +45,7 @@ using the given starting variable.
 ### string_strip.rb
 Should output exactly
 ```
-"no external whitespace"
+"remove the outside spaces"
 ```
 using the given starting variable.
 
