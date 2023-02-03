@@ -1,63 +1,18 @@
 # Ruby Practice
 
-Run your Ruby file by typing `ruby ` and then the name of the file you want to run in the Terminal.
+ 1. Open a file (e.g. `string_concat.rb`) in the editor window.
+ 1. Modify the file per the instructions on top.
+ 1. Run your Ruby file by typing `ruby ` and then the name of the file you want to run in the terminal. If we want to run `string_concat.rb`, we can write the command:
 
-If we want to run `string_multiplication.rb`, we can write the command:
+      ```bash
+      ruby string_concat.rb
+      ```
+   
+      Remember, if there are multiple files with similar names, start typing the name and then just press <kbd>Tab</kbd> on your keyboard to let the terminal complete the name. You rarely need to type full filenames out — use **tab completion**!
 
-```bash
-ruby string_multiplication.rb
-```
+1. To re-run this command, you can use the <kbd>Up ↑</kbd> and <kbd>Down ↓</kbd> arrow keys to look at the history of commands you've run in a terminal.
+1. When you think you have the required output, run `rails grade` and proceed when the test passes without errors.
 
-To re-run this command, you can use the UP and DOWN arrow keys to look at the history of commands you've run in a Terminal.
-
-## String
-
-### string_multiplication.rb
-Should output:
-```
-"HoHoHo"
-```
-using String multiplication.
-
-(Don't just print the String literal `"HoHoHo"`)
-
-### string_case.rb
-Should output:
-```
-"HELLO friends AnD FaMiLy"
-```
-using a combination of the `upcase`, `downcase`, and `swapcase` methods.
-
-### string_chomp.rb
-Shoud output:
-```
-"Hello!"
-```
-using the given starting variable.
-
-### string_gsub.rb
-Should output:
-```
-"put spaces in between these words"
-```
-using the given starting variable.
-
-### string_strip.rb
-Should output exactly
-```
-"remove the outside spaces"
-```
-using the given starting variable.
-
-### string_gets.rb
-Write a program that gets a name (e.g. "alice") from the user, capitalizes it, and then says "Hello, Alice!"
-
-Should work similarly to the following:
-```
-"What's your name?"
-jelani
-"Hello, Jelani!"
-```
 
 ## Specs
 <details>
