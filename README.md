@@ -13,7 +13,7 @@
 1. To re-run this command, you can use the <kbd>Up ↑</kbd> and <kbd>Down ↓</kbd> arrow keys to look at the history of commands you've run in a terminal.
 1. When you think you have the required output, run `rails grade` and proceed when the test passes without errors.
 
-**If you are struggling, try to experiment directly in the IRB environment by typing `irb` into the terminal and pressing enter. This will start an interactive Ruby terminal, where you can enter individual lines of Ruby to see their output.**
+**If you are struggling, try to experiment directly in the IRB environment by typing `irb` into the terminal and pressing enter. This will start an interactive Ruby terminal, where you can enter individual lines of Ruby to see their output. If you start `irb` then the terminal will no longer be in the `bash` environment so things like `rails grade` won't work. You will need to open a second terminal with the plus (+) icon and switch between the `irb` and `bash` terminals as needed.**
 
 ## Specs
 <details>
