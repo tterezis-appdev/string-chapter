@@ -1,3 +1,27 @@
+describe "string_concat.rb" do
+  it "should output 'Ruby's fun' using concat", points: 1 do
+    concat_file = "string_concat.rb"
+    file_contents = File.read(concat_file)
+    concat_counter = 0
+    File.foreach(concat_file).with_index do |line, line_num|
+      if line.match(/^p.*"Ruby's fun"/) || line.include?("puts")
+        expect(line).to_not match(/Ruby's fun/),
+          "Expected 'string_concat.rb' to NOT just pring the String literal 'Ruby's fun', but did."
+      end
+      if line.include?(".concat(") 
+        unless line.include?("#")
+          concat_counter += 1
+        end
+      end
+    end
+    expect(concat_counter).to be > 0,
+      "Expected 'string_concat.rb' to use the .concat method, but it did not."
+    output = with_captured_stdout { require_relative('../../string_concat')} 
+    output = "empty" if output.empty? 
+    expect(output.match?(/Ruby's fun/)).to be(true), "Expected output to be 'Ruby's fun', but was #{output}"
+  end
+end
+
 describe "string_multiplication.rb" do
   it "should output 'HoHoHo' using String multiplication", points: 1 do
     multiplication_file = "string_multiplication.rb"
