@@ -13,7 +13,7 @@
 #
 # using ASCII codes and .concat
 
-# Start by creating an empty string class variable:
+# Start by creating a new (empty) String class variable:
 
 s = 
 
@@ -28,7 +28,6 @@ s =
 #### SOLUTION:
 
 # s = String.new
-
 # s.concat(82)
 # s.concat(117)
 # s.concat(98)
@@ -39,5 +38,4 @@ s =
 # s.concat(102)
 # s.concat(117)
 # s.concat(110)
-
 # p s
