@@ -102,6 +102,26 @@ describe "string_multiplication.rb" do
 end
 
 
+# string_case
+describe "string_case.rb" do
+  it "should output 'HELLO friends AnD FaMiLy'", points: 1 do
+    case_file = "string_case.rb"
+    file_contents = File.read(case_file)
+
+    File.foreach(case_file).with_index do |line, line_num|
+      if line.match(/^p.*"HELLO friends AnD FaMiLy"/) || line.include?("puts")
+        expect(line).to_not match(/HELLO friends AnD FaMiLy/),
+          "Expected 'string_case.rb' to NOT print the String literal 'HELLO friends AnD FaMiLy', but did."
+      end
+    end
+
+    output = with_captured_stdout { require_relative('../../string_case')} 
+    output = "empty" if output.empty? 
+    expect(output.match?(/HELLO friends AnD FaMiLy/)).to be(true), "Expected output to be 'HELLO friends AnD FaMiLy', but was #{output}."
+  end
+end
+
+
 # string_strip
 describe "string_strip.rb" do
   it "should output 'remove outside spaces'", points: 1 do
@@ -109,16 +129,6 @@ describe "string_strip.rb" do
     output = "empty" if output.empty? 
     expect(output.length).to be <= 28, "Expected output to be 'remove the outside spaces', but output was #{output.length} characters long."
     expect(output.match?(/remove the outside spaces/)).to be(true), "Expected output to be 'remove the outside spaces', but was #{output}"
-  end
-end
-
-
-# string_case
-describe "string_case.rb" do
-  it "should output 'HELLO friends AnD FaMiLy'", points: 1 do
-    output = with_captured_stdout { require_relative('../../string_case')} 
-    output = "empty" if output.empty? 
-    expect(output.match?(/HELLO friends AnD FaMiLy/)).to be(true), "Expected output to be 'HELLO friends AnD FaMiLy', but was #{output}."
   end
 end
 
