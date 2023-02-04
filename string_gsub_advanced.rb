@@ -1,6 +1,6 @@
 # Output:
 # 
-# "w"
+# "blah blah blah"
 # 
 # using the given print statement.
 # Do not add any additional lines of code.
