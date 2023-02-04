@@ -122,6 +122,26 @@ describe "string_case.rb" do
 end
 
 
+# string_chomp
+describe "string_chomp.rb" do
+  it "should remove ending '$'", points: 1 do
+    chomp_file = "string_chomp.rb"
+    file_contents = File.read(chomp_file)
+
+    File.foreach(chomp_file).with_index do |line, line_num|
+      if line.match(/^p.*"Hello!"/) || line.include?("puts")
+        expect(line).to_not match(/Hello!/),
+          "Expected 'string_chomp.rb' to NOT print the String literal 'Hello!', but did."
+      end
+    end
+
+    output = with_captured_stdout { require_relative('../../string_chomp')} 
+    output = "empty" if output.empty? 
+    expect(output.match?(/Hello!/)).to be(true), "Expected output to be 'Hello!', but was #{output}."
+  end
+end
+
+
 # string_strip
 describe "string_strip.rb" do
   it "should output 'remove outside spaces'", points: 1 do
@@ -139,16 +159,6 @@ describe "string_gsub.rb" do
     output = with_captured_stdout { require_relative('../../string_gsub')} 
     output = "empty" if output.empty? 
     expect(output.match?(/put spaces in between these words/)).to be(true), "Expected output to be 'put spaces in between these words', but was #{output}."
-  end
-end
-
-
-# string_chomp
-describe "string_chomp.rb" do
-  it "should remove ending '$'", points: 1 do
-    output = with_captured_stdout { require_relative('../../string_chomp')} 
-    output = "empty" if output.empty? 
-    expect(output.match?(/Hello!/)).to be(true), "Expected output to be 'Hello!', but was #{output}."
   end
 end
 
