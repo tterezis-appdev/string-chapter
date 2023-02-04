@@ -142,23 +142,43 @@ describe "string_chomp.rb" do
 end
 
 
-# string_strip
-describe "string_strip.rb" do
-  it "should output 'remove outside spaces'", points: 1 do
-    output = with_captured_stdout { require_relative('../../string_strip')} 
+# string_gsub
+describe "string_gsub.rb" do
+  it "should output 'put spaces in between these words'", points: 1 do
+    gsub_file = "string_gsub.rb"
+    file_contents = File.read(gsub_file)
+
+    File.foreach(gsub_file).with_index do |line, line_num|
+      if line.match(/^p.*"put spaces in between these words"/) || line.include?("puts")
+        expect(line).to_not match(/put spaces in between these words/),
+          "Expected 'string_gsub.rb' to NOT print the String literal 'put spaces in between these words', but did."
+      end
+    end
+
+    output = with_captured_stdout { require_relative('../../string_gsub')} 
     output = "empty" if output.empty? 
-    expect(output.length).to be <= 28, "Expected output to be 'remove the outside spaces', but output was #{output.length} characters long."
-    expect(output.match?(/remove the outside spaces/)).to be(true), "Expected output to be 'remove the outside spaces', but was #{output}"
+    expect(output.match?(/put spaces in between these words/)).to be(true), "Expected output to be 'put spaces in between these words', but was #{output}."
   end
 end
 
 
-# string_gsub
-describe "string_gsub.rb" do
-  it "should output 'put spaces in between these words'", points: 1 do
-    output = with_captured_stdout { require_relative('../../string_gsub')} 
+# string_strip
+describe "string_strip.rb" do
+  it "should output 'remove outside spaces'", points: 1 do
+    strip_file = "string_strip.rb"
+    file_contents = File.read(strip_file)
+
+    File.foreach(strip_file).with_index do |line, line_num|
+      if line.match(/^p.*"remove the outside spaces"/) || line.include?("puts")
+        expect(line).to_not match(/remove the outside spaces/),
+          "Expected 'string_strip.rb' to NOT print the String literal 'remove the outside spaces', but did."
+      end
+    end
+
+    output = with_captured_stdout { require_relative('../../string_strip')} 
     output = "empty" if output.empty? 
-    expect(output.match?(/put spaces in between these words/)).to be(true), "Expected output to be 'put spaces in between these words', but was #{output}."
+    expect(output.length).to be <= 28, "Expected output to be 'remove the outside spaces', but output was #{output.length} characters long."
+    expect(output.match?(/remove the outside spaces/)).to be(true), "Expected output to be 'remove the outside spaces', but was #{output}"
   end
 end
 
