@@ -18,7 +18,7 @@ describe "string_multiplication.rb" do
       end
     end
     expect(multiplication_counter).to be >= 1,
-      "Expected 'string_addition.rb' to use the * multiplication method, but only #{multiplication_counter} '*' found."
+      "Expected 'string_addition.rb' to use the * multiplication method, but #{multiplication_counter} '*' found."
 
     output = with_captured_stdout { require_relative('../../string_multiplication')} 
     output = "empty" if output.empty? 
