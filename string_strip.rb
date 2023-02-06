@@ -1,7 +1,13 @@
 # Output exactly
 # 
-# "remove the outside spaces"
+# "Remove outside spaces and capitalize"
 # 
-# using the given starting variable.
+# using the given starting variable and the
+# strip and capitalize methods.
 
-outside_spaces = "    remove the outside spaces    "
+outside_spaces = "    remove outside spaces and capitalize    "
+
+
+#### SOLUTION:
+
+p outside_spaces.strip.capitalize

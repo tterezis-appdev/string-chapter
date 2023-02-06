@@ -164,21 +164,44 @@ end
 
 # string_strip
 describe "string_strip.rb" do
-  it "should output 'remove outside spaces'", points: 1 do
+  it "should output 'Remove outside spaces and capitalize'", points: 1 do
     strip_file = "string_strip.rb"
     file_contents = File.read(strip_file)
 
+    strip_counter = 0
     File.foreach(strip_file).with_index do |line, line_num|
-      if line.match(/^p.*"remove the outside spaces"/) || line.include?("puts")
-        expect(line).to_not match(/remove the outside spaces/),
-          "Expected 'string_strip.rb' to NOT print the String literal 'remove the outside spaces', but did."
+      if line.include?(".strip") 
+        unless line.include?("#")
+          strip_counter += 1
+        end
+      end
+    end
+    expect(strip_counter).to be >= 1,
+      "Expected 'string_strip.rb' to use the strip method, but .strip not found in code."
+
+    capitalize_counter = 0
+    File.foreach(strip_file).with_index do |line, line_num|
+      if line.include?(".capitalize") 
+        unless line.include?("#")
+          capitalize_counter += 1
+        end
+      end
+    end
+    expect(capitalize_counter).to be >= 1,
+      "Expected 'string_strip.rb' to use the capitalize method, but .capitalize not found in code."
+
+
+    File.foreach(strip_file).with_index do |line, line_num|
+      if line.match(/^p.*"Remove outside spaces and capitalize"/) || line.include?("puts")
+        expect(line).to_not match(/Remove outside spaces and capitalize/),
+          "Expected 'string_strip.rb' to NOT print the String literal 'Remove outside spaces and capitalize', but did."
       end
     end
 
     output = with_captured_stdout { require_relative('../../string_strip')} 
     output = "empty" if output.empty? 
-    expect(output.length).to be <= 28, "Expected output to be 'remove the outside spaces', but output was #{output.length} characters long."
-    expect(output.match?(/remove the outside spaces/)).to be(true), "Expected output to be 'remove the outside spaces', but was #{output}"
+    expect(output.length).to be <= 39, "Expected output to be 'Remove outside spaces and capitalize', but output was #{output.length} characters long."
+    expect(output.match?(/Remove outside spaces and capitalize/)).to be(true), "Expected output to be 'Remove outside spaces and capitalize', but was #{output}"
   end
 end
 
