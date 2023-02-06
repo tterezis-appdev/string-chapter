@@ -10,4 +10,4 @@ outside_spaces = "    remove outside spaces and capitalize    "
 
 #### SOLUTION:
 
-p outside_spaces.strip.capitalize
+# p outside_spaces.strip.capitalize
