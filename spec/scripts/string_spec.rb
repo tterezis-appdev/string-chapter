@@ -51,7 +51,7 @@ describe "string_addition.rb" do
       end
     end
     expect(assignment_counter).to be >= 2,
-      "Expected 'string_addition.rb' to use at least two variables to store parts of the string before adding, but only #{assignment_counter} '=' found."
+      "Expected 'string_addition.rb' to use at least two variables to store parts of the string before adding, but #{assignment_counter} '=' found."
     
     plus_counter = 0
     File.foreach(addition_file).with_index do |line, line_num|
@@ -62,7 +62,7 @@ describe "string_addition.rb" do
       end
     end
     expect(plus_counter).to be >= 1,
-      "Expected 'string_addition.rb' to use the + plus method, but only #{plus_counter} '+' found."
+      "Expected 'string_addition.rb' to use the + plus method, but #{plus_counter} '+' found."
     
     output = with_captured_stdout { require_relative('../../string_addition')} 
     output = "empty" if output.empty? 
@@ -93,7 +93,7 @@ describe "string_multiplication.rb" do
       end
     end
     expect(multiplication_counter).to be >= 1,
-      "Expected 'string_addition.rb' to use the * multiplication method, but only #{multiplication_counter} '*' found."
+      "Expected 'string_addition.rb' to use the * multiplication method, but #{multiplication_counter} '*' found."
 
     output = with_captured_stdout { require_relative('../../string_multiplication')} 
     output = "empty" if output.empty? 
