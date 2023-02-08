@@ -10,6 +10,15 @@
 
 first_part = "Add"
 
+second_part = " it together"
+
+p first_part + second_part
+
+# ~~~~~ Specs ~~~~~
+#
+# addition.rb should output 'Add it together' using String addition
+#
+# ~~~~~~~~~~~~~~~~~
 
 #### SOLUTION:
 

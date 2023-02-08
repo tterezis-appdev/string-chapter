@@ -2,7 +2,7 @@
 # just read on ASCII codes, add to the code below,
 # and run it from the terminal window by typing:
 #     
-#     ruby string_concat.rb
+#     ruby concat.rb
 #
 # after the prompt (gitpod /workspace/string-chapter: $)
 # and pressing enter.
@@ -16,6 +16,13 @@
 # Start by creating a new (empty) String class variable:
 
 s = 
+
+
+# ~~~~~ Specs ~~~~~
+#
+# concat.rb should output 'Ruby's fun' using concat
+#
+# ~~~~~~~~~~~~~~~~~
 
 
 #### THESE FAIL ON TEST:
