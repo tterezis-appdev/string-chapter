@@ -8,6 +8,18 @@ describe "string_multiplication.rb" do
           "Expected 'string_multiplication.rb' to NOT print the String literal 'HoHoHo', but did."
       end
     end
+
+    multiplication_counter = 0
+    File.foreach(multiplication_file).with_index do |line, line_num|
+      if line.include?("*") 
+        unless line.include?("#")
+          multiplication_counter += 1
+        end
+      end
+    end
+    expect(multiplication_counter).to be >= 1,
+      "Expected 'string_addition.rb' to use the * multiplication method, but #{multiplication_counter} '*' found."
+
     output = with_captured_stdout { require_relative('../../string_multiplication')} 
     output = "empty" if output.empty? 
     expect(output.match?(/HoHoHo/)).to be(true), "Expected output to be 'HoHoHo', but was #{output}"
