@@ -17,9 +17,16 @@
   "workbench.tree.renderIndentGuides": "always",
   "files.autoSaveDelay": 500,
   "files.exclude": {
-		"**/.git": true,
-		".vscode": true,
-		".bundle": true,
+    "**/.git": true,
+    ".vscode": true,
+    ".bundle": true,
+    ".*": true,
+    "*.ru": true,
+    "Dockerfile": true,
+    "Gem*": true,
+    "install-packages": true,
+    "main.rb": true,
+    "README.md": true,
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -31,11 +38,11 @@
   "html.format.preserveNewLines": true,
   "html.format.templating": true,
   "terminal.integrated.altClickMovesCursor": true,
-  "[erb]":  {
-		"editor.formatOnSave": true
+  "[erb]": {
+    "editor.formatOnSave": true
   },
-  "[ruby]":  {
-		"editor.formatOnSave": true
+  "[ruby]": {
+    "editor.formatOnSave": true
   },
   "vscode-erb-beautify.keepBlankLines": 1,
   "ruby.intellisense": false,
