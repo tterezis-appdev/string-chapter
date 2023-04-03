@@ -7,3 +7,4 @@
 greeting = "hello"
 people = " FRIENDS"
 other_people = " aNd fAmIlY"
+p (greeting.upcase + people.downcase + other_people.swapcase)
